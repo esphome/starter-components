@@ -1,8 +1,8 @@
 # this configuration file has all empty components set up.
-# use 'esphome compile test_empty_components.yaml' to build. 
+# use 'esphome compile test_empty_components.yaml' to build.
 
 packages:
-  device: !include device.yaml # include our test device setup
+  device: !include device.yaml  # include our test device setup
 
 interval:
   - interval: 3s
@@ -41,7 +41,7 @@ sensor:
     sensor2:
       name: Sensor 2
     sensor3:
-      name: Sensor 3  
+      name: Sensor 3
 
   - platform: empty_sensor_hub
     name: Sensor for empty sensor hub
@@ -50,7 +50,7 @@ sensor:
 binary_sensor:
   - platform: empty_binary_sensor
     name: Empty binary sensor
-  
+
   - platform: empty_sensor_hub
     name: Binary sensor for empty sensor hub
     empty_sensor_hub_id: empty_sensor_hub_1
@@ -66,7 +66,7 @@ light:
   - platform: empty_light
     name: Empty light
     output: empty_float_output_1
-    
+
 switch:
   - platform: empty_switch
     name: Empty switch
@@ -79,11 +79,11 @@ fan:
 text_sensor:
   - platform: empty_text_sensor
     name: Empty text sensor
-  
+
   - platform: empty_sensor_hub
     name: Text sensor for empty sensor hub
     empty_sensor_hub_id: empty_sensor_hub_1
-  
+
 cover:
   platform: empty_cover
   name: Empty cover
