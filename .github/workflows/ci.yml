@@ -14,7 +14,14 @@ concurrency:
 
 jobs:
   build:
+    name: ${{ matrix.esphome-version }}
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        esphome-version:
+          - stable
+          - beta
+          - dev
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -22,4 +29,5 @@ jobs:
       - name: Build
         uses: esphome/build-action@v7
         with:
+          version: ${{ matrix.esphome-version }}
           yaml-file: test_empty_components.yaml
