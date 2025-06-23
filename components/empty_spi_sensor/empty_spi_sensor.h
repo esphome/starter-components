@@ -14,7 +14,6 @@ class EmptySPISensor : public sensor::Sensor,
  public:
   void setup() override;
   void update() override;
-  void loop() override;
   void dump_config() override;
 };
 

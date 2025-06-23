@@ -11,7 +11,6 @@ class EmptyUARTSensor : public sensor::Sensor, public PollingComponent, public u
  public:
   void setup() override;
   void update() override;
-  void loop() override;
   void dump_config() override;
 };
 
