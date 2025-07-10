@@ -16,7 +16,7 @@ void EmptySPISensor::setup() {
   uint8_t initialize_cmd = 0x12; // Example command to initialize the device
   this->write_byte(initialize_cmd);
 
-  uint8_t response = read_byte(); // Read the response from the device
+  uint8_t response = this->read_byte(); // Read the response from the device
   this->disable();
 
   if (response != 0) { // Example check for a specific response
