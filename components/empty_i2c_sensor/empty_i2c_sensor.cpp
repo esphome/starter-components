@@ -30,6 +30,22 @@ void EmptyI2CSensor::setup() {
 
 void EmptyI2CSensor::update() {
   // Work to be done at each update interval
+  uint8_t read_cmd = 0x42; // Example command to query the device for data
+  // Instruct the device to read data
+  if (this->write(&read_cmd, 1) != i2c::ERROR_OK) {
+    ESP_LOGW(TAG, "Request failed");
+    this->status_set_warning();  // We can indicate a warning if the write fails
+    return;
+  }
+  // Read the response from the device
+  uint8_t response;
+  if (this->read(&response, 1) != i2c::ERROR_OK) {
+    ESP_LOGW(TAG, "Read failed");
+    this->status_set_warning();  // We can indicate a warning if the read fails
+    return;
+  }
+  // Publish the response as a sensor state
+  this->publish_state(static_cast<float>(response));
 }
 
 void EmptyI2CSensor::dump_config() {

@@ -29,6 +29,13 @@ void EmptySPISensor::setup() {
 
 void EmptySPISensor::update() {
   // Work to be done at each update interval
+  uint8_t read_cmd = 0x42; // Example command to query the device for data
+  this->enable();  // Enable/select the device...
+  this->write_byte(read_cmd);  //  ...and instruct the device to read data
+  uint8_t response = this->read_byte(); // Read the response from the device
+  this->disable();
+  // Publish the response as a sensor state
+  this->publish_state(static_cast<float>(response));
 }
 
 void EmptySPISensor::dump_config() {

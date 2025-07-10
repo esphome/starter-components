@@ -28,10 +28,30 @@ void EmptyUARTSensor::setup() {
 
 void EmptyUARTSensor::update() {
   // Work to be done at each update interval
+  uint8_t buffer_pos = 0;   // Counter used for populating the buffer
+  uint8_t read_cmd = 0x42;  // Example command to query the device for data
+  this->write_byte(read_cmd);  // Instruct the device to read data
+
+  // Read the response from the device, up to MAX_LINE_LENGTH bytes
+  while (this->available() && buffer_pos < MAX_LINE_LENGTH && this->read_byte(&this->buffer_data_[buffer_pos++])) {
+  }
+
+  if (buffer_pos > 0) {
+    this->parse_data();  // If we have read some data, parse it
+    this->publish_state(this->parsed_value_);  // Publish the parsed value as a sensor state
+  } else {
+    ESP_LOGW(TAG, "No data received");
+    this->status_set_warning();  // We can indicate a warning if no data was read
+  }
 }
 
 void EmptyUARTSensor::dump_config(){
     ESP_LOGCONFIG(TAG, "Empty UART sensor");
+}
+
+void EmptyUARTSensor::parse_data() {
+  // Example parsing method
+  // Translates data received into buffer_data_ and stores it in parsed_value_ for publishing
 }
 
 }  // namespace empty_UART_sensor
