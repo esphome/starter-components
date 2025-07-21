@@ -7,7 +7,7 @@ namespace empty_gpio_component {
 static const char *TAG = "empty_gpio_component.component";
 
 void EmptyGPIOComponent::setup() {
-  ESP_LOGCONFIG(TAG, "Setting up Empty GPIO component...");
+  ESP_LOGCONFIG(TAG, "Running setup");
   this->pin_->setup();
   this->pin_->digital_write(true);
 }
