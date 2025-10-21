@@ -2,7 +2,7 @@
 
 #include "esphome/core/component.h"
 #include "esphome/components/output/binary_output.h"
-#include "esphome/components/fan/fan_state.h"
+#include "esphome/components/fan/fan.h"
 
 namespace esphome {
 namespace empty_fan {
