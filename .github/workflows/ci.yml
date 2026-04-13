@@ -24,10 +24,10 @@ jobs:
           - dev
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5  # v4.3.1
 
       - name: Build
-        uses: esphome/build-action@v7
+        uses: esphome/build-action@76cd6898550762b189215bbe6e50e29080fd2c33  # v7.0.0
         with:
           version: ${{ matrix.esphome-version }}
           yaml-file: test_empty_components.yaml
