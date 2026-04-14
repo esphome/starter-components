@@ -60,7 +60,8 @@ EMPTY_AUTOMATION_CONDITION_SCHEMA = automation.maybe_simple_id(
 async def empty_automation_set_state_to_code(config, action_id, template_arg, args):
     paren = await cg.get_variable(config[CONF_ID])
     var = cg.new_Pvariable(action_id, template_arg, paren)
-    cg.add(var.set_state(config[CONF_STATE]))
+    templ = await cg.templatable(config[CONF_STATE], args, cg.bool_)
+    cg.add(var.set_state(templ))
     return var
 
 
