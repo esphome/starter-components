@@ -27,7 +27,7 @@ jobs:
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5  # v4.3.1
 
       - name: Build
-        uses: esphome/build-action@76cd6898550762b189215bbe6e50e29080fd2c33  # v7.0.0
+        uses: esphome/build-action@f0a331817f5535854a10a42621b6a8b7ebe95c4c  # v7.2.0
         with:
           version: ${{ matrix.esphome-version }}
           yaml-file: test_empty_components.yaml
