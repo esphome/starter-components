@@ -5,7 +5,7 @@ version: 'v0.0.3'
 workflows:
     '.github/workflows/ci.yml':
         - 'actions/checkout@v6.0.3'
-        - 'esphome/build-action@v7.3.0'
+        - 'esphome/build-action@v8.1.0'
     '.github/workflows/verify-lockfile.yml':
         - 'actions/checkout@v7.0.1'
     '.github/workflows/yaml-lint.yml':
@@ -21,8 +21,8 @@ dependencies:
         commit: 'sha1-3d3c42e5aac5ba805825da76410c181273ba90b1'
         owner_id: 44036562
         repo_id: 197814629
-    'esphome/build-action@v7.3.0':
-        ref: 'v7.3.0'
-        commit: 'sha1-4ef4722a2935eac47b7e227fe0e1f8e0f8afcc42'
+    'esphome/build-action@v8.1.0':
+        ref: 'v8.1.0'
+        commit: 'sha1-ae5408cdbc4f70692bf8e345c4982bca05a93667'
         owner_id: 45919759
         repo_id: 429375811
